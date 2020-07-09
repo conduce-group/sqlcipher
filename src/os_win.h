@@ -20,6 +20,18 @@
 */
 #include "windows.h"
 
+/*
+** Include the ...FromApp APIs introduced in Windows 10 version 1803.
+** 
+** These are variations of older Win32 APIs like CreateFileW and DeleteFileW 
+** that work from within an AppContainer (the security context in which a UWP
+** app runs) and allow access to files outside of the app's private directories.
+**
+** This allows SQLite to access files outside the AppContainer when using the 
+** broadFileSystemAccess capability.
+*/
+#include "fileapifromapp.h"
+
 #ifdef __CYGWIN__
 # include <sys/cygwin.h>
 # include <errno.h> /* amalgamator: dontcache */

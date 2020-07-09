@@ -594,7 +594,7 @@ static struct win_syscall {
 #define osDeleteFileA ((BOOL(WINAPI*)(LPCSTR))aSyscall[9].pCurrent)
 
 #if defined(SQLITE_WIN32_HAS_WIDE)
-  { "DeleteFileW",             (SYSCALL)DeleteFileW,             0 },
+  { "DeleteFileW",             (SYSCALL)DeleteFileFromAppW,      0 },
 #else
   { "DeleteFileW",             (SYSCALL)0,                       0 },
 #endif
@@ -688,7 +688,7 @@ static struct win_syscall {
 #define osGetFileAttributesW ((DWORD(WINAPI*)(LPCWSTR))aSyscall[21].pCurrent)
 
 #if defined(SQLITE_WIN32_HAS_WIDE)
-  { "GetFileAttributesExW",    (SYSCALL)GetFileAttributesExW,    0 },
+  { "GetFileAttributesExW",    (SYSCALL)GetFileAttributesExFromAppW,    0 },
 #else
   { "GetFileAttributesExW",    (SYSCALL)0,                       0 },
 #endif
@@ -1050,7 +1050,7 @@ static struct win_syscall {
         SIZE_T))aSyscall[67].pCurrent)
 
 #if SQLITE_OS_WINRT
-  { "CreateFile2",             (SYSCALL)CreateFile2,             0 },
+  { "CreateFile2",             (SYSCALL)CreateFile2FromAppW,     0 },
 #else
   { "CreateFile2",             (SYSCALL)0,                       0 },
 #endif
