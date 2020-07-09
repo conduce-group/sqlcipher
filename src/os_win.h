@@ -73,7 +73,7 @@
 ** the full Win32 API.
 */
 #if !defined(SQLITE_OS_WINRT)
-# define SQLITE_OS_WINRT 0
+# define SQLITE_OS_WINRT 1
 #endif
 
 /*
